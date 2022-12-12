@@ -31,10 +31,17 @@ pipeline:
                   name: Run
                   identifier: Run
                   spec:
-                    connectorRef: DockerDaposon1
-                    image: python:3.10
+                    connectorRef: account.bootcampdockerhub
+                    image: python 3.9.4
                     shell: Sh
                     command: |
                       python -m pip install --upgrade pip==21.1.2
                       python -m pip install -r requirements.txt
                       python manage.py runserver 8000
+          serviceDependencies:
+            - identifier: Dependecy
+              name: Dependecy
+              type: Service
+              spec:
+                connectorRef: account.bootcampdockerhub
+                image: Python 3.9.4
